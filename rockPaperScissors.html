@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // javascript goes here
+        let player;
+        let comp;
+        let playerWins;
+        let compWins;
+        function compPlay(){
+            let choice = Math.floor(Math.random()*3+1);
+            switch(choice){
+                case 1: 
+                    return "rock";
+                    break;
+                case 2: 
+                    return "scissors";
+                    break;
+                case 3:
+                    return "paper";
+                    break;
+            }
+        }
+        function playRound(){
+            player = prompt("Make your play: rock, scissors or, paper");
+            comp = compPlay();
+            player = player.toLocaleLowerCase();
+            if (player == "rock"){
+                if (comp == "scissors")
+                    return "you win: rock beats scissors";
+                else if (comp == "paper")
+                    return "you lose: paper beats rock";
+                else
+                    return "it is a tie"
+            }
+            else if (player == "scissors"){
+                if (comp == "paper")
+                    return "you win: scissors beats paper";
+                else if (comp == "rock")
+                    return "you lose: rock beats scissors";
+                else
+                    return "it is a tie";
+            }
+            else {
+                if (comp == "rock")
+                    return "you win: paper beats rock";
+                else if (comp == "scissors")
+                    return "you lose: scissors beats paper";
+                else
+                    return "it is a tie";
+            }
+        }
+        function game() {
+            for (let i=0; i <=4; i++)
+               console.log(playRound());
+        }
+    </script>
+</body>
+</html>
